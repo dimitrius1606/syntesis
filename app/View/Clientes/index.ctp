@@ -16,18 +16,21 @@
     </tr>
     <?php
     foreach ($clientes as $cliente) {
-        $dt = new \Datetime($cliente['Cliente']['dt_criacao']);
-        $dt_criacao = $dt->format('d/m/Y');
+        $dt_criacao = '';
+        $dt_alteracao = '';
 
-        $dt = new \Datetime($cliente['Cliente']['dt_alteracao']);
-        $dt_alteracao = $dt->format('d/m/Y');
+        $dtc = new \Datetime($cliente['Cliente']['dt_criacao']);
+        $dt_criacao = $dtc->format('d/m/Y');
+
+        $dta = new \Datetime($cliente['Cliente']['dt_alteracao']);
+        $dt_alteracao = $dta->format('d/m/Y');
             ?>
             <tr>
                 <td><?php echo $cliente['Cliente']['id']; ?></td>
                 <td><?php echo $cliente['Cliente']['nome']; ?></td>
                 <td><?php echo $cliente['Cliente']['sobrenome']; ?></td>
-                <td><?php echo $dt_criacao; ?></td>
-                <td><?php echo $dt_alteracao; ?></td>
+                <td><?php echo $cliente['Cliente']['dt_criacao']; ?></td>
+                <td><?php echo $cliente['Cliente']['dt_alteracao']; ?></td>
                 <td><?php echo $this->Html->link('Editar', array('action' => 'editar', $cliente['Cliente']['id'])); ?>
                     <?php echo $this->Html->link(
                         'Excluir', array(
