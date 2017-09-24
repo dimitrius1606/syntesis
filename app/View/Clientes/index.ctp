@@ -16,14 +16,6 @@
     </tr>
     <?php
     foreach ($clientes as $cliente) {
-        $dt_criacao = '';
-        $dt_alteracao = '';
-
-        $dtc = new \Datetime($cliente['Cliente']['dt_criacao']);
-        $dt_criacao = $dtc->format('d/m/Y');
-
-        $dta = new \Datetime($cliente['Cliente']['dt_alteracao']);
-        $dt_alteracao = $dta->format('d/m/Y');
             ?>
             <tr>
                 <td><?php echo $cliente['Cliente']['id']; ?></td>
